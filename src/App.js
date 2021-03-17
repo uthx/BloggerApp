@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { BlogContextProvider } from "./blogContext/blogContext";
+import Demo from "./components/demo";
+import NavBar from "./components/NavComponents/NavBar";
+import BlogsContainer from "./components/BodyComponents/BlogsContainer";
+import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
+import BlogContainerHolder from "./components/BlogContainerHolder";
+import LikedPost from "./components/NavComponents/Like";
+import DislikedPost from "./components/NavComponents/Dislike";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BlogContextProvider>
+        <Router>
+          <NavBar />
+          <Switch>
+            <Route path="/" exact component={BlogsContainer}></Route>
+            <Route path="/liked-posts" component={LikedPost}></Route>
+            <Route path="/disliked-posts" component={DislikedPost}></Route>
+          </Switch>
+          {/* <BlogsContainer /> */}
+        </Router>
+      </BlogContextProvider>
     </div>
   );
 }
