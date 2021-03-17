@@ -233,12 +233,7 @@ export default function PrimarySearchAppBar() {
         </AppBar>
         {renderMobileMenu}
         {renderMenu}
-        {/* <Switch>
-          <Route path="/liked-posts"><LikePost/></Route>
-          <Route path="/disliked-posts"><DislikePost/></Route>
-          <Route path="/create-new-post"><CreatePost/></Route>
-        </Switch>
-      </Router> */}
+        
     </div>
   );
 }
