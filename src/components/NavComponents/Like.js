@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    background: "#90e0ef",
+    background: "#c1d3fe",
     margin: 10,
     cursor: "pointer",
   },
@@ -21,15 +21,36 @@ const Like = () => {
   const [like, setLike] = likeContext;
   const [posts, setPosts] = postsContext;
   const classes = useStyles();
-  const arr = like.map(({ id }) => id);
-  //   const displayLikedPosts = like.map(el => posts.find(el.id)) => {
 
-  //   }
-  
-  console.log(arr)
+  //filterLikePost will filter liked posts from all posts and return an array of objects of liked posts
+  const filterLikePost = () => {
+    const likedPostArray = [];
+    like.forEach(({ id }) => {
+      likedPostArray.push(...posts.filter((post) => post.id === id));
+    });
+    return likedPostArray;
+  };
+  const likedPostsObjects = filterLikePost();
+  const likedPostData = likedPostsObjects.map(({ id, title, body }) => {
+    return (
+      <Paper className={classes.paper} elevation={10} key={id}>
+        <div>
+          <h1>ID: {id}</h1>
+          <h1>Title: {title}</h1>
+          <h1>Body: {body}</h1>
+        </div>
+      </Paper>
+    );
+  });
+
   return (
     <div>
-      <h1>Liked Posts</h1>
+      <Grid container spacing={3} className={classes.root}>
+        <Grid item xs={12}>
+          <h1>Liked Posts</h1>
+          {like.length ? likedPostData : <h1>No Posts Liked Yet!</h1>}
+        </Grid>
+      </Grid>
     </div>
   );
 };

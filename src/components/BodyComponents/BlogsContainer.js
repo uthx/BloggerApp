@@ -10,13 +10,14 @@ import { Route } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
     background: "#90e0ef",
+    // background: '#cae9ff',
     margin: 10,
-    cursor: "pointer",
   },
   buttons: {
     display: "flex",
@@ -33,11 +34,13 @@ export default function BlogContainer() {
     limitContext,
     likeContext,
     dislikeContext,
+    // choiceButtonContext,
   } = useContext(BlogContextReciever);
   const [posts, setPosts] = postsContext;
   const [limit, setLimit] = limitContext;
   const [like, setLike] = likeContext;
   const [dislike, setDislike] = dislikeContext;
+  // const [choiceButtonState, setChoiceButtonState] = choiceButtonContext;
 
   //onLoadNext will change the state limit to render next 10 posts'
   const onLoadNext = () => {
@@ -50,12 +53,7 @@ export default function BlogContainer() {
   const classes = useStyles();
   const postData = posts.slice(limit, limit + 10).map((post) => {
     return (
-      <Paper
-        className={classes.paper}
-        elevation={10}
-        key={post.id}
-        // onClick={() => alert("cliiiicked")}
-      >
+      <Paper className={classes.paper} elevation={10} key={post.id}>
         <Blog
           key={post.id}
           title={post.title}
