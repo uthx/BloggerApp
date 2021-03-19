@@ -4,8 +4,10 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
+import EditIcon from "@material-ui/icons/Edit";
 import { withWidth } from "@material-ui/core";
 import { BorderAllRounded } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   buttons: {
@@ -39,7 +41,9 @@ const Blogs = ({ title, body, id, like, setLike, dislike, setDislike }) => {
     }
     setDislike([...dislike, { id }]);
   };
-
+  const editHandler = () => {
+    // alert('editing')
+  };
   //Helper function - like & dislike handler
   const hasInteractedBefore = (state) => {
     //checking to see if the state have an object with current post id
@@ -64,6 +68,11 @@ const Blogs = ({ title, body, id, like, setLike, dislike, setDislike }) => {
         >
           <ThumbDownIcon />
         </IconButton>
+        <Link to={`/edit-posts/${id}`}>
+          <IconButton color="primary" size="medium" onClick={editHandler}>
+            <EditIcon />
+          </IconButton>
+        </Link>
         <IconButton
           color="primary"
           size="medium"

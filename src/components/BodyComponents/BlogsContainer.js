@@ -6,11 +6,10 @@ import Blog from "./Blogs";
 import { BlogContextReciever } from "../../blogContext/blogContext";
 import Button from "@material-ui/core/Button";
 import { Route } from "react-router-dom";
-// src\blogContext\blogContext.js
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    
   },
   paper: {
     padding: theme.spacing(2),
@@ -26,20 +25,19 @@ const useStyles = makeStyles((theme) => ({
     margin: 10,
   },
 }));
-//title,body,id,userId
 
 export default function BlogContainer() {
-  const {
-    postsContext,
-    limitContext,
-    likeContext,
-    dislikeContext,
-    // choiceButtonContext,
-  } = useContext(BlogContextReciever);
-  const [posts, setPosts] = postsContext;
-  const [limit, setLimit] = limitContext;
-  const [like, setLike] = likeContext;
-  const [dislike, setDislike] = dislikeContext;
+    const {
+      postsContext,
+      limitContext,
+      likeContext,
+      dislikeContext,
+      // choiceButtonContext,
+    } = useContext(BlogContextReciever);
+    const [posts, setPosts] = postsContext;
+    const [limit, setLimit] = limitContext;
+    const [like, setLike] = likeContext;
+    const [dislike, setDislike] = dislikeContext;
   // const [choiceButtonState, setChoiceButtonState] = choiceButtonContext;
 
   //onLoadNext will change the state limit to render next 10 posts'

@@ -6,3 +6,8 @@ import { POSTS_URI } from "./CONSTANTS";
 export const fetchPosts = () => {
   return axios.get(`${POSTS_URI}`);
 };
+
+//Patch operation
+export const updatePosts = (id, data) => {
+  return axios.patch(`${POSTS_URI}/${id}`, data);
+};

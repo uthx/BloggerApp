@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -9,17 +9,16 @@ import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import SearchIcon from "@material-ui/icons/Search";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import NoteAddIcon from "@material-ui/icons/NoteAdd";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import CreatePost from './CreatePost';
+import CreatePost from "./CreatePost";
 import DislikePost from "./Dislike";
-import LikePost from './Like'
+import LikePost from "./Like";
+import { BlogContextReciever } from "../../blogContext/blogContext";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -90,12 +89,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const { likeContext, dislikeContext } = useContext(BlogContextReciever);
+  const [like, setLike] = likeContext;
+  const [dislike, setDislike] = dislikeContext;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const [searchId, setSearchId] = useState("");
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -140,7 +143,7 @@ export default function PrimarySearchAppBar() {
       <MenuItem>
         <Link to="/liked-posts" className={classes.linkStylesMobile}>
           <IconButton aria-label="show 4 new mails" color="inherit">
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={like.length} color="secondary">
               <ThumbUpIcon />
             </Badge>
           </IconButton>
@@ -151,7 +154,7 @@ export default function PrimarySearchAppBar() {
       <MenuItem>
         <Link to="/disliked-posts" className={classes.linkStylesMobile}>
           <IconButton aria-label="show 11 new notifications" color="inherit">
-            <Badge badgeContent={11} color="secondary">
+            <Badge badgeContent={dislike.length} color="secondary">
               <ThumbDownIcon />
             </Badge>
           </IconButton>
@@ -173,13 +176,17 @@ export default function PrimarySearchAppBar() {
   return (
     <div className={classes.grow}>
       {/* <Router> */}
-        <AppBar position="static">
-          <Toolbar>
-            <Link to="/" style={{color:"white",textDecoration: "none",outline: 0}}>
+      <AppBar position="static">
+        <Toolbar>
+          <Link
+            to="/"
+            style={{ color: "white", textDecoration: "none", outline: 0 }}
+          >
             <Typography className={classes.title} variant="h6" noWrap>
               Blogger
             </Typography>
-            </Link>
+          </Link>
+          <Link to={`/search-posts/${searchId}`} style={{ color: "#FFF" }}>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
@@ -190,50 +197,48 @@ export default function PrimarySearchAppBar() {
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
+                onChange={(e) => setSearchId(e.target.value)}
                 inputProps={{ "aria-label": "search" }}
               />
             </div>
-            <div className={classes.grow} />
-            <div className={classes.sectionDesktop}>
-              <Link to="/liked-posts" style={{ color: "#FFF" }}>
-                <IconButton aria-label="show all liked posts" color="inherit">
-                  <Badge badgeContent={4} color="secondary">
-                    <ThumbUpIcon />
-                  </Badge>
-                </IconButton>
-              </Link>
-              <Link to="/disliked-posts" style={{ color: "#FFF" }}>
-                <IconButton
-                  aria-label="show all disliked posts"
-                  color="inherit"
-                >
-                  <Badge badgeContent={17} color="secondary">
-                    <ThumbDownIcon />
-                  </Badge>
-                </IconButton>
-              </Link>
-              <Link to="/create-new-post" style={{ color: "#FFF" }}>
-                <IconButton aria-label="Create new post" color="inherit">
-                  <NoteAddIcon />
-                </IconButton>
-              </Link>
-            </div>
-            <div className={classes.sectionMobile}>
-              <IconButton
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
+          </Link>
+          <div className={classes.grow} />
+          <div className={classes.sectionDesktop}>
+            <Link to="/liked-posts" style={{ color: "#FFF" }}>
+              <IconButton aria-label="show all liked posts" color="inherit">
+                <Badge badgeContent={like.length} color="secondary">
+                  <ThumbUpIcon />
+                </Badge>
               </IconButton>
-            </div>
-          </Toolbar>
-        </AppBar>
-        {renderMobileMenu}
-        {renderMenu}
-        
+            </Link>
+            <Link to="/disliked-posts" style={{ color: "#FFF" }}>
+              <IconButton aria-label="show all disliked posts" color="inherit">
+                <Badge badgeContent={dislike.length} color="secondary">
+                  <ThumbDownIcon />
+                </Badge>
+              </IconButton>
+            </Link>
+            <Link to="/create-new-post" style={{ color: "#FFF" }}>
+              <IconButton aria-label="Create new post" color="inherit">
+                <NoteAddIcon />
+              </IconButton>
+            </Link>
+          </div>
+          <div className={classes.sectionMobile}>
+            <IconButton
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+              color="inherit"
+            >
+              <MoreIcon />
+            </IconButton>
+          </div>
+        </Toolbar>
+      </AppBar>
+      {renderMobileMenu}
+      {renderMenu}
     </div>
   );
 }
