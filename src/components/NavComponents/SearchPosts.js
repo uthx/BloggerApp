@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { BlogContextReciever } from "../../blogContext/blogContext";
 import Paper from "@material-ui/core/Paper";
@@ -32,14 +32,14 @@ const SearchPosts = () => {
   const searchPostObject = posts
     .filter((post) => post.id === searchPostId)
     .pop();
-  console.log(searchPostObject);
+
   const searchPostData = (
-    <Paper className={classes.paper} elevation={10} key={searchPostObject.id}>
+    <Paper className={classes.paper} elevation={10} key={searchPostObject?.id}>
       <Blog
-        key={searchPostObject.id}
-        title={searchPostObject.title}
-        body={searchPostObject.body}
-        id={searchPostObject.id}
+        key={searchPostObject?.id}
+        title={searchPostObject?.title}
+        body={searchPostObject?.body}
+        id={searchPostObject?.id}
         like={like}
         setLike={setLike}
         dislike={dislike}
@@ -47,12 +47,23 @@ const SearchPosts = () => {
       />
     </Paper>
   );
+  console.log(posts.length);
+  const a = "1fdfdf";
+  const ErrorData = () => {
+    return (
+      <div>
+        <h1>Please enter a valid input.</h1>
+        <h1>Expexting an ID(num) between 1 to {posts?.length}</h1>
+      </div>
+    );
+  };
+
   return (
     <div>
       <Grid container spacing={3} className={classes.root}>
         <Grid item xs={12}>
-          <h1>Search Results</h1>
-          {searchPostData}
+          <h1>Search Results:</h1>
+          {searchPostObject ? searchPostData : <ErrorData />}
         </Grid>
       </Grid>
     </div>

@@ -11,3 +11,9 @@ export const fetchPosts = () => {
 export const updatePosts = (id, data) => {
   return axios.patch(`${POSTS_URI}/${id}`, data);
 };
+
+//Post Operation
+
+export const createNewPost = (data) =>{
+  return axios.post(`${POSTS_URI}`,data);
+}

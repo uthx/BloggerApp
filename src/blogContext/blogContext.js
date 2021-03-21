@@ -8,6 +8,7 @@ export const BlogContextProvider = (props) => {
   const [limit, setLimit] = useState(0);
   const [like, setLike] = useState([]);
   const [dislike, setDislike] = useState([]);
+  const [searchId, setSearchId] = useState("");
 
   useEffect(() => {
     fetchPosts().then(({ data }) => setPosts(data));
@@ -20,6 +21,7 @@ export const BlogContextProvider = (props) => {
         limitContext: [limit, setLimit],
         likeContext: [like, setLike],
         dislikeContext: [dislike, setDislike],
+        searchContext: [searchId, setSearchId],
       }}
     >
       {props.children}

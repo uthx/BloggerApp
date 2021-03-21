@@ -5,8 +5,6 @@ import IconButton from "@material-ui/core/IconButton";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import EditIcon from "@material-ui/icons/Edit";
-import { withWidth } from "@material-ui/core";
-import { BorderAllRounded } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -89,16 +89,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-  const { likeContext, dislikeContext } = useContext(BlogContextReciever);
+  const {
+    likeContext,
+    dislikeContext,
+    limitContext,
+    searchContext,
+  } = useContext(BlogContextReciever);
   const [like, setLike] = likeContext;
   const [dislike, setDislike] = dislikeContext;
+  const [limit, setLimit] = limitContext;
+  const [searchId, setSearchId] = searchContext;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const [searchId, setSearchId] = useState("");
+  // const [searchId, setSearchId] = useState("");
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -182,7 +189,12 @@ export default function PrimarySearchAppBar() {
             to="/"
             style={{ color: "white", textDecoration: "none", outline: 0 }}
           >
-            <Typography className={classes.title} variant="h6" noWrap>
+            <Typography
+              className={classes.title}
+              variant="h6"
+              noWrap
+              onClick={() => setLimit(0)}
+            >
               Blogger
             </Typography>
           </Link>

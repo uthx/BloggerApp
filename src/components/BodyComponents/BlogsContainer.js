@@ -27,17 +27,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function BlogContainer() {
-    const {
-      postsContext,
-      limitContext,
-      likeContext,
-      dislikeContext,
-      // choiceButtonContext,
-    } = useContext(BlogContextReciever);
-    const [posts, setPosts] = postsContext;
-    const [limit, setLimit] = limitContext;
-    const [like, setLike] = likeContext;
-    const [dislike, setDislike] = dislikeContext;
+  const {
+    postsContext,
+    limitContext,
+    likeContext,
+    dislikeContext,
+    // choiceButtonContext,
+  } = useContext(BlogContextReciever);
+  const [posts, setPosts] = postsContext;
+  const [limit, setLimit] = limitContext;
+  const [like, setLike] = likeContext;
+  const [dislike, setDislike] = dislikeContext;
   // const [choiceButtonState, setChoiceButtonState] = choiceButtonContext;
 
   //onLoadNext will change the state limit to render next 10 posts'
@@ -65,7 +65,12 @@ export default function BlogContainer() {
       </Paper>
     );
   });
-
+  const disabledHandler = () => {
+    const postLength = posts.length;
+    const postMod = postLength % 10;
+    const addToRound = postMod === 0 ? 0 : 10 - postMod;
+    return limit === postLength + addToRound - 10 ? true : false;
+  };
   return (
     <div>
       <div className={classes.buttons}>
@@ -82,7 +87,8 @@ export default function BlogContainer() {
           variant="contained"
           color="primary"
           onClick={onLoadNext}
-          disabled={limit === 90 ? true : false}
+          // disabled={limit === posts.length - 10 ? true : false}
+          disabled={disabledHandler()}
         >
           Next
         </Button>
