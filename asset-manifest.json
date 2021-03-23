@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/BloggerApp/static/css/main.204fb09d.chunk.css",
-    "main.js": "/BloggerApp/static/js/main.4e60fac3.chunk.js",
-    "main.js.map": "/BloggerApp/static/js/main.4e60fac3.chunk.js.map",
+    "main.js": "/BloggerApp/static/js/main.c4fc9461.chunk.js",
+    "main.js.map": "/BloggerApp/static/js/main.c4fc9461.chunk.js.map",
     "runtime-main.js": "/BloggerApp/static/js/runtime-main.6a8b25d8.js",
     "runtime-main.js.map": "/BloggerApp/static/js/runtime-main.6a8b25d8.js.map",
     "static/js/2.48a41181.chunk.js": "/BloggerApp/static/js/2.48a41181.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.6a8b25d8.js",
     "static/js/2.48a41181.chunk.js",
     "static/css/main.204fb09d.chunk.css",
-    "static/js/main.4e60fac3.chunk.js"
+    "static/js/main.c4fc9461.chunk.js"
   ]
 }
