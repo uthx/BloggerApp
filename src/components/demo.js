@@ -22,9 +22,3 @@
 
 
 
-// let a = {age: 10,user:{id: 10}};
-// let b = JSON.parse(JSON.stringify(a))
-// a.user.id =120
-
-// console.log(a)
-// console.log(b)
