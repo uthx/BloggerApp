@@ -37,30 +37,17 @@ const EditPosts = () => {
 
   const updateSubmitHandler = (e) => {
     e.preventDefault();
+    const updateData = (dataToUpdate) =>
+      posts.map((item) =>
+        item.id === editPostId ? { ...item, ...dataToUpdate } : item
+      );
 
-    // const filteredPostObject = posts.filter((post) => post.id !== editPostId);
-    // console.log(filteredPostObject);
-    // function sortPosts(resData) {
-    //   filteredPostObject.push(resData);
-    //   filteredPostObject.sort((a, b) => {
-    //     return a.id - b.id;
-    //   });
-    //   return filteredPostObject;
-    // }
-    const updateData = (dataToUpdate) => posts.map((item) => item.id === editPostId ? { ...item, ...dataToUpdate } : item);
-    
-
-    //   updatePosts(editPostId, postUpdateData)
-    //     .then(({ data }) => {
-    //       setPosts([...sortPosts(data)]);
-    //     })
-    //     .catch((err) => console.log(err));
-    // };
     updatePosts(editPostId, postUpdateData)
       .then(({ data }) => {
         setPosts(updateData(data));
       })
       .catch((err) => console.log(err));
+    setPostUpdateData({ title: "", body: "" });
   };
   return (
     <div>

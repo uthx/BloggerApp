@@ -48,7 +48,6 @@ const SearchPosts = () => {
     </Paper>
   );
   console.log(posts.length);
-  const a = "1fdfdf";
   const ErrorData = () => {
     return (
       <div>

@@ -1,6 +1,5 @@
 import "./App.css";
 import { BlogContextProvider } from "./blogContext/blogContext";
-import Demo from "./components/demo";
 import NavBar from "./components/NavComponents/NavBar";
 import BlogsContainer from "./components/BodyComponents/BlogsContainer";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
