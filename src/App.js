@@ -2,7 +2,7 @@ import "./App.css";
 import { BlogContextProvider } from "./blogContext/blogContext";
 import NavBar from "./components/NavComponents/NavBar";
 import BlogsContainer from "./components/BodyComponents/BlogsContainer";
-import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import LikedPost from "./components/NavComponents/Like";
 import DislikedPost from "./components/NavComponents/Dislike";
 import CreateNewPost from "./components/NavComponents/CreatePost";

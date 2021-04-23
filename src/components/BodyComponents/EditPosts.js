@@ -8,7 +8,6 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
 import { BlogContextReciever } from "../../blogContext/blogContext";
-import { SettingsInputCompositeSharp } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {

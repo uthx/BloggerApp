@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Dislike = () => {
   const { dislikeContext, postsContext } = useContext(BlogContextReciever);
-  const [dislike, setDislike] = dislikeContext;
-  const [posts, setPosts] = postsContext;
+  const [dislike] = dislikeContext;
+  const [posts] = postsContext;
   const classes = useStyles();
 
   //filterLikePost will filter liked posts from all posts and return an array of objects of liked posts

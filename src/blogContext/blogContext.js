@@ -1,5 +1,5 @@
 //this file will hold our context
-import { createContext, useState, useReducer, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import { fetchPosts } from "../api/crudCalls";
 export const BlogContextReciever = createContext();
 

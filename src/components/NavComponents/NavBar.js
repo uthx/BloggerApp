@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -14,10 +14,8 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import NoteAddIcon from "@material-ui/icons/NoteAdd";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import CreatePost from "./CreatePost";
-import DislikePost from "./Dislike";
-import LikePost from "./Like";
+import { Link } from "react-router-dom";
+
 import { BlogContextReciever } from "../../blogContext/blogContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -95,9 +93,9 @@ export default function PrimarySearchAppBar() {
     limitContext,
     searchContext,
   } = useContext(BlogContextReciever);
-  const [like, setLike] = likeContext;
-  const [dislike, setDislike] = dislikeContext;
-  const [limit, setLimit] = limitContext;
+  const [like] = likeContext;
+  const [dislike] = dislikeContext;
+  const [setLimit] = limitContext;
   const [searchId, setSearchId] = searchContext;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);

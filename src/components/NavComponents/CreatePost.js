@@ -6,7 +6,6 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
 import { BlogContextReciever } from "../../blogContext/blogContext";
-import { SettingsInputCompositeSharp } from "@material-ui/icons";
 import { createNewPost } from "../../api/crudCalls";
 
 const useStyles = makeStyles((theme) => ({
@@ -27,9 +26,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CreatePost = () => {
-  const { postsContext, limitContext } = useContext(BlogContextReciever);
+  const { postsContext } = useContext(BlogContextReciever);
   const [posts, setPosts] = postsContext;
-  const [limit, setLimit] = limitContext;
   const classes = useStyles();
   const [newPostData, setnewPostData] = useState({ title: "", body: "" });
 
@@ -63,7 +61,6 @@ const CreatePost = () => {
     createNewPost(newPostData)
       .then(({ data }) => {
         setPosts([
-        
           {
             title: data.title,
             body: data.body,

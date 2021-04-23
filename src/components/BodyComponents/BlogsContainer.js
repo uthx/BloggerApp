@@ -5,7 +5,6 @@ import Grid from "@material-ui/core/Grid";
 import Blog from "./Blogs";
 import { BlogContextReciever } from "../../blogContext/blogContext";
 import Button from "@material-ui/core/Button";
-import { Route } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +33,7 @@ export default function BlogContainer() {
     dislikeContext,
     // choiceButtonContext,
   } = useContext(BlogContextReciever);
-  const [posts, setPosts] = postsContext;
+  const [posts] = postsContext;
   const [limit, setLimit] = limitContext;
   const [like, setLike] = likeContext;
   const [dislike, setDislike] = dislikeContext;

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { BlogContextReciever } from "../../blogContext/blogContext";
 import Paper from "@material-ui/core/Paper";
@@ -26,7 +26,7 @@ const SearchPosts = () => {
   const { postsContext, likeContext, dislikeContext } = useContext(
     BlogContextReciever
   );
-  const [posts, setPosts] = postsContext;
+  const [posts] = postsContext;
   const [like, setLike] = likeContext;
   const [dislike, setDislike] = dislikeContext;
   const searchPostObject = posts
