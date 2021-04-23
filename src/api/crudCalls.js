@@ -2,12 +2,12 @@
 import axios from "axios";
 import { POSTS_URI } from "./CONSTANTS";
 
-//READ OPERATION
+//READ OPERATION ie-get Request
 export const fetchPosts = () => {
   return axios.get(`${POSTS_URI}`);
 };
 
-//Patch operation
+//Patch operation 
 export const updatePosts = (id, data) => {
   return axios.patch(`${POSTS_URI}/${id}`, data);
 };

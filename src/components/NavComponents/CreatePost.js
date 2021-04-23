@@ -63,7 +63,7 @@ const CreatePost = () => {
     createNewPost(newPostData)
       .then(({ data }) => {
         setPosts([
-          ...posts,
+        
           {
             title: data.title,
             body: data.body,
