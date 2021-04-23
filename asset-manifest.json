@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/BloggerApp/static/css/main.204fb09d.chunk.css",
-    "main.js": "/BloggerApp/static/js/main.324fe2da.chunk.js",
-    "main.js.map": "/BloggerApp/static/js/main.324fe2da.chunk.js.map",
+    "main.css": "/BloggerApp/static/css/main.f86c4c1c.chunk.css",
+    "main.js": "/BloggerApp/static/js/main.b48e3379.chunk.js",
+    "main.js.map": "/BloggerApp/static/js/main.b48e3379.chunk.js.map",
     "runtime-main.js": "/BloggerApp/static/js/runtime-main.6a8b25d8.js",
     "runtime-main.js.map": "/BloggerApp/static/js/runtime-main.6a8b25d8.js.map",
-    "static/js/2.3694b7d2.chunk.js": "/BloggerApp/static/js/2.3694b7d2.chunk.js",
-    "static/js/2.3694b7d2.chunk.js.map": "/BloggerApp/static/js/2.3694b7d2.chunk.js.map",
+    "static/js/2.bc09c53d.chunk.js": "/BloggerApp/static/js/2.bc09c53d.chunk.js",
+    "static/js/2.bc09c53d.chunk.js.map": "/BloggerApp/static/js/2.bc09c53d.chunk.js.map",
     "index.html": "/BloggerApp/index.html",
-    "static/css/main.204fb09d.chunk.css.map": "/BloggerApp/static/css/main.204fb09d.chunk.css.map",
-    "static/js/2.3694b7d2.chunk.js.LICENSE.txt": "/BloggerApp/static/js/2.3694b7d2.chunk.js.LICENSE.txt"
+    "static/css/main.f86c4c1c.chunk.css.map": "/BloggerApp/static/css/main.f86c4c1c.chunk.css.map",
+    "static/js/2.bc09c53d.chunk.js.LICENSE.txt": "/BloggerApp/static/js/2.bc09c53d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6a8b25d8.js",
-    "static/js/2.3694b7d2.chunk.js",
-    "static/css/main.204fb09d.chunk.css",
-    "static/js/main.324fe2da.chunk.js"
+    "static/js/2.bc09c53d.chunk.js",
+    "static/css/main.f86c4c1c.chunk.css",
+    "static/js/main.b48e3379.chunk.js"
   ]
 }
