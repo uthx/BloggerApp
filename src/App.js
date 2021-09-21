@@ -9,6 +9,7 @@ import CreateNewPost from "./components/NavComponents/CreatePost";
 import EditPosts from "./components/BodyComponents/EditPosts";
 import SearchPosts from "./components/NavComponents/SearchPosts";
 function App() {
+  //want to add 1 comment
   return (
     <div className="App">
       <BlogContextProvider>
